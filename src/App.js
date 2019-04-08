@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  onClick(name) {
+    
+    console.log(name);
+    console.log("=============");
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hello World! Test
-          </p>
-        </header>
+      <div className="container">
+        <h2>Basic Panel</h2>
+        <div className="panel panel-default">
+          <div className="panel-body" onClick={this.onClick.bind(this,"Test")}>A Basic Panel</div>
+        </div>
       </div>
     );
   }
