@@ -9,10 +9,18 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      text: '', arr: ["Mesut"], data: ["helo"]
+      text: '', arr: [], data: []
     }
     this.changeInput = this.changeInput.bind(this)
     this.addItem = this.addItem.bind(this)
+    this.clickPic = this.clickPic.bind(this)
+  }
+  clickPic(name)
+  {
+    console.log(name);
+    var newArray = this.state.arr.slice();
+    newArray.push(name);
+    this.setState({ arr: newArray })
   }
   onClick(name) {
 
@@ -20,9 +28,8 @@ class App extends Component {
     console.log("=============");
   }
   addItem(e) {
-    console.log("tiklandi");
     var newArray = this.state.arr.slice();
-    newArray.push(e.target.value);
+    newArray.push(this.state.text);
     this.setState({ arr: newArray })
   }
   changeInput(e) {
@@ -50,7 +57,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Form</h1>
-        <form>
+        <form action={this.addItem}>
           <input type="text"
             value={this.state.text}
             onChange={this.changeInput}
@@ -64,7 +71,7 @@ class App extends Component {
             return (
 
               <div>
-                <img src={item.avatar} alt={item.name}/>
+                <img onClick={this.clickPic.bind(this,item.name)} src={item.avatar} alt={item.name}/>
                 <p>{item.id}  {item.name}</p>
               </div>
             )
