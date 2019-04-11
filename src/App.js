@@ -15,8 +15,7 @@ class App extends Component {
     this.addItem = this.addItem.bind(this)
     this.clickPic = this.clickPic.bind(this)
   }
-  clickPic(name)
-  {
+  clickPic(name) {
     console.log(name);
     var newArray = this.state.arr.slice();
     newArray.push(name);
@@ -31,6 +30,29 @@ class App extends Component {
     var newArray = this.state.arr.slice();
     newArray.push(this.state.text);
     this.setState({ arr: newArray })
+
+    //post
+    const newTodo = {
+      name: this.state.text,
+      alan : "mesut"
+    }
+    http.post(window.apiUrl, newTodo).then(res => {
+      if (res.status === 201) {
+        this.setState({
+          text: ''
+        })
+        console.log("frfr");
+
+
+        this.setState({
+          data: this.state.data.concat(res.data)
+        })
+
+      }
+      //this.fromInput.removeAttribute('disabled')
+    })
+
+
   }
   changeInput(e) {
     const test = e.target.value
@@ -56,6 +78,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <br /><br /><br /><br />
         <h1>Form</h1>
         <form action={this.addItem}>
           <input type="text"
@@ -63,15 +86,17 @@ class App extends Component {
             onChange={this.changeInput}
           />
           <input type="button" value="Click me" onClick={this.addItem} />
-          <p>{this.state.text}</p>
+
 
         </form>
+        <br /><br /><br /><br />
         {
           this.state.data.map(item => {
             return (
 
               <div>
-                <img onClick={this.clickPic.bind(this,item.name)} src={item.avatar} alt={item.name}/>
+                
+                <img onClick={this.clickPic.bind(this, item.name)} src={item.avatar} alt={item.name} />
                 <p>{item.id}  {item.name}</p>
               </div>
             )
