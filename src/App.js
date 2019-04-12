@@ -27,14 +27,15 @@ class App extends Component {
     console.log("=============");
   }
   addItem(e) {
+    /*
     var newArray = this.state.arr.slice();
     newArray.push(this.state.text);
     this.setState({ arr: newArray })
-
+    */
     //post
     const newTodo = {
       name: this.state.text,
-      alan : "Production"
+      alan: "Production"
     }
     http.post(window.apiUrl, newTodo).then(res => {
       if (res.status === 201) {
@@ -78,8 +79,10 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <br /><br /><br /><br />
-        <p>test</p>
+        <br />
+        <hr />
+        <h1>{this.state.arr.length} adet resim seçtiniz.</h1>
+        <hr />
         <h3>Aşağıdaki Metin Alanına Ekleyin ve Listeyi Güncelleyin</h3>
         <p>Veri Sayısı : {this.state.data.length}</p>
         <form action={this.addItem}>
@@ -97,7 +100,6 @@ class App extends Component {
             return (
 
               <div>
-                
                 <img onClick={this.clickPic.bind(this, item.name)} src={item.avatar} alt={item.name} />
                 <p>{item.id}  {item.name}</p>
               </div>
