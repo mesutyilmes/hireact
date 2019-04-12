@@ -3,7 +3,7 @@ import './App.css';
 import http from 'axios';
 
 
-window.apiUrl = 'http://5cac37c8c85e05001452f0b9.mockapi.io/yilmes/test'
+window.apiUrl = '//5cac37c8c85e05001452f0b9.mockapi.io/yilmes/test'
 
 class App extends Component {
   constructor() {
@@ -79,7 +79,7 @@ class App extends Component {
     return (
       <div className="container">
         <br /><br /><br /><br />
-        <h1>Form</h1>
+        <h3>Aşağıdaki Metin Alanına Ekleyin ve Listeyi Güncelleyin</h3>
         <form action={this.addItem}>
           <input type="text"
             value={this.state.text}
