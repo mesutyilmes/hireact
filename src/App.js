@@ -81,6 +81,7 @@ class App extends Component {
         <br /><br /><br /><br />
         <p>test</p>
         <h3>Aşağıdaki Metin Alanına Ekleyin ve Listeyi Güncelleyin</h3>
+        <p>Veri Sayısı : {this.state.data.length}</p>
         <form action={this.addItem}>
           <input type="text"
             value={this.state.text}
