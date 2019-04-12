@@ -34,7 +34,7 @@ class App extends Component {
     //post
     const newTodo = {
       name: this.state.text,
-      alan : "mesut"
+      alan : "Production"
     }
     http.post(window.apiUrl, newTodo).then(res => {
       if (res.status === 201) {
