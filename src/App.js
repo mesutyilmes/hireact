@@ -79,7 +79,8 @@ class App extends Component {
     return (
       <div className="container">
         <br /><br /><br /><br />
-        <h1>Form Live</h1>
+        <p>test</p>
+        <h3>Aşağıdaki Metin Alanına Ekleyin ve Listeyi Güncelleyin</h3>
         <form action={this.addItem}>
           <input type="text"
             value={this.state.text}
