@@ -3,7 +3,7 @@ import './App.css';
 import http from 'axios';
 
 
-window.apiUrl = 'http://5cac37c8c85e05001452f0b9.mockapi.io/yilmes/test'
+window.apiUrl = '//5cac37c8c85e05001452f0b9.mockapi.io/yilmes/test'
 
 class App extends Component {
   constructor() {
